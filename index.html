@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Abdullah Khan · IT, Networking &amp; Security</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Abdullah Khan: Calgary-based IT operations, networking and security professional building toward identity and access management.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #0a0e17; }
+  ::selection { background: rgba(92,200,219,0.28); color: #fff; }
+  @media (max-width: 680px) { .nav-links { display: none !important; } }
+
+  /* Transform-only keyframes - opacity stays 1 so content is always visible,
+     even where the animation clock is frozen. Motion plays in a real browser. */
+  @keyframes riseUp { from { transform: translateY(24px); } to { transform: translateY(0); } }
+  @keyframes drift { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-30px,26px); } }
+  @keyframes pulseDot { 0%,100% { box-shadow: 0 0 0 0 rgba(92,200,219,.0); } 50% { box-shadow: 0 0 16px 3px rgba(92,200,219,.55); } }
+  @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: .2; } }
+  @keyframes ringPulse { 0% { box-shadow: 0 0 0 4px rgba(92,200,219,.18); } 70%,100% { box-shadow: 0 0 0 13px rgba(92,200,219,0); } }
+
+  /* Scroll-driven reveal: progresses with SCROLL position, not the wall clock,
+     so it animates in supporting browsers and simply rests visible everywhere else. */
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      [data-reveal] {
+        animation: riseUp linear both;
+        animation-timeline: view();
+        animation-range: entry 2% cover 16%;
+      }
+    }
+  }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes indeterminate { from { transform: translateX(-100%); } to { transform: translateX(290%); } }
+
+  a:focus-visible { outline: 2px solid #5cc8db; outline-offset: 3px; border-radius: 4px; }
+
+  .marquee-track { display: flex; width: max-content; animation: marquee 46s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  .marquee-group { display: flex; align-items: center; gap: 28px; padding-right: 28px; flex: none; }
+  .marquee-item { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: 1.2px; text-transform: uppercase; color: #aeb8c6; white-space: nowrap; }
+  .marquee-dot { width: 5px; height: 5px; background: #5cc8db; transform: rotate(45deg); flex: none; }
+
+  .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+  @media (max-width: 900px) {
+    .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 420px) {
+    .stats { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ambient { animation: none !important; }
+    .marquee-track { animation: none; width: auto; justify-content: center; }
+    .marquee-group { flex-wrap: wrap; justify-content: center; row-gap: 10px; padding: 0 20px; }
+    .marquee-group[data-dup] { display: none; }
+  }
+</style>
+<style>
+.hv1:hover{color:#e9edf4 !important}
+.hv2:hover{color:#e9edf4 !important}
+.hv3:hover{color:#e9edf4 !important}
+.hv4:hover{color:#e9edf4 !important}
+.hv5:hover{color:#e9edf4 !important}
+.hv6:hover{color:#e9edf4 !important}
+.hv7:hover{background:#7ad8e8 !important;transform:translateY(-1px) !important}
+.hv8:hover{background:#7ad8e8 !important;transform:translateY(-2px) !important;box-shadow:0 12px 30px rgba(92,200,219,0.22) !important}
+.hv9:hover{border-color:#5cc8db !important;background:rgba(92,200,219,0.06) !important}
+.hv10:hover{border-color:#2f4a55 !important;transform:translateY(-4px) !important;box-shadow:0 16px 36px rgba(0,0,0,.4) !important}
+.hv11:hover{border-color:#2f4a55 !important;transform:translateY(-4px) !important;box-shadow:0 16px 36px rgba(0,0,0,.4) !important}
+.hv12:hover{border-color:#2f4a55 !important;transform:translateY(-4px) !important;box-shadow:0 16px 36px rgba(0,0,0,.4) !important}
+.hv13:hover{border-color:#2f4a55 !important;transform:translateY(-4px) !important;box-shadow:0 16px 36px rgba(0,0,0,.4) !important}
+.hv14:hover{border-color:#2f4a55 !important;transform:translateY(-4px) !important;box-shadow:0 16px 36px rgba(0,0,0,.4) !important}
+.hv15:hover{border-color:#2f4a55 !important;transform:translateY(-4px) !important;box-shadow:0 16px 36px rgba(0,0,0,.4) !important}
+.hv16:hover{border-color:#2f4a55 !important;transform:translateY(-4px) !important;box-shadow:0 16px 36px rgba(0,0,0,.4) !important}
+.hv17:hover{border-color:#2f4a55 !important;transform:translateY(-3px) !important}
+.hv18:hover{border-color:#2f4a55 !important;transform:translateY(-3px) !important}
+.hv19:hover{border-color:#2f4a55 !important;transform:translateY(-3px) !important}
+.hv20:hover{border-color:#2f4a55 !important;transform:translateY(-3px) !important}
+.hv21:hover{border-color:#5cc8db !important;transform:translateY(-2px) !important}
+.hv22:hover{border-color:#5cc8db !important;transform:translateY(-2px) !important}
+.hv23:hover{background:#7ad8e8 !important;transform:translateY(-2px) !important}
+</style>
+</head>
+<body>
+<div style="background:#0a0e17; color:#e9edf4; font-family:'IBM Plex Sans',system-ui,sans-serif; line-height:1.5; -webkit-font-smoothing:antialiased; overflow-x:hidden;">
+
+  <!-- NAV -->
+  <nav style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:14px clamp(20px,5vw,56px); background:rgba(10,14,23,0.72); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid #161d2b;">
+    <span id="scrollbar" aria-hidden="true" style="position:absolute; left:0; bottom:-1px; width:100%; height:2px; background:linear-gradient(90deg,#5cc8db,#9be4f0); box-shadow:0 0 10px rgba(92,200,219,.7); transform-origin:left; transform:scaleX(0); pointer-events:none;"></span>
+    <a href="#top" style="display:flex; align-items:center; gap:10px; text-decoration:none; color:#e9edf4; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:16px; letter-spacing:-0.2px;">
+      <span style="width:9px; height:9px; border-radius:2px; background:#5cc8db; box-shadow:0 0 12px rgba(92,200,219,0.7);"></span>
+      Abdullah Khan
+    </a>
+    <div class="nav-links" style="display:flex; align-items:center; gap:30px; font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:0.3px;">
+      <a class="hv1" data-nav="about" href="#about" style="color:#9aa6b8; text-decoration:none; transition:color .2s;">About</a>
+      <a class="hv2" data-nav="experience" href="#experience" style="color:#9aa6b8; text-decoration:none; transition:color .2s;">Experience</a>
+      <a class="hv3" data-nav="projects" href="#projects" style="color:#9aa6b8; text-decoration:none; transition:color .2s;">Projects</a>
+      <a class="hv4" data-nav="skills" href="#skills" style="color:#9aa6b8; text-decoration:none; transition:color .2s;">Skills</a>
+      <a class="hv5" data-nav="certs" href="#certs" style="color:#9aa6b8; text-decoration:none; transition:color .2s;">Certs</a>
+      <a class="hv6" data-nav="contact" href="#contact" style="color:#9aa6b8; text-decoration:none; transition:color .2s;">Contact</a>
+      <a class="hv7" href="resume.pdf" target="_blank" rel="noopener" style="color:#0a0e17; background:#5cc8db; text-decoration:none; padding:8px 16px; border-radius:7px; font-weight:500; transition:background .2s, transform .2s;">Resume ↓</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="top" style="position:relative; display:flex; flex-direction:column; justify-content:center; padding:clamp(80px,12vh,140px) clamp(20px,5vw,56px) clamp(60px,8vh,100px); max-width:1140px; margin:0 auto; width:100%; overflow:hidden;">
+    <div class="ambient" style="position:absolute; top:-120px; right:-20px; width:520px; height:520px; background:radial-gradient(circle, rgba(92,200,219,0.16), rgba(92,200,219,0) 70%); pointer-events:none; animation:drift 16s ease-in-out infinite;"></div>
+    <div style="position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px); background-size:34px 34px; mask-image:linear-gradient(to bottom, #000 0%, transparent 80%); -webkit-mask-image:linear-gradient(to bottom, #000 0%, transparent 80%); pointer-events:none;"></div>
+
+    <div style="position:relative; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr)); gap:clamp(36px,5vw,64px); align-items:center;">
+    <div style="position:relative; min-width:0;">
+      <div data-reveal style="display:inline-flex; align-items:center; gap:10px; font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:#5cc8db; margin-bottom:26px;">
+        <span class="ambient" style="width:6px; height:6px; border-radius:50%; background:#5cc8db; animation:pulseDot 2.6s ease-in-out infinite;"></span>
+        Based in Calgary, AB
+      </div>
+      <h1 data-reveal data-delay="60" style="margin:0; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(42px,6.6vw,80px); line-height:1.02; letter-spacing:-2px; color:#f3f6fb;">
+        Abdullah Khan
+      </h1>
+      <p data-reveal data-delay="120" style="margin:22px 0 0; font-size:clamp(19px,2.6vw,28px); font-weight:400; color:#c3ccda; max-width:680px; letter-spacing:-0.2px;">
+        IT Operations, Networking &amp; Security
+      </p>
+      <p data-reveal data-delay="170" style="margin:18px 0 0; font-size:clamp(15px,1.6vw,17px); color:#9aa6b8; max-width:560px; line-height:1.7;">
+        Supporting, automating and securing the systems organizations depend on since 2022, from production Linux and Windows systems to networks and identity.
+      </p>
+      <div data-reveal data-delay="200" style="display:flex; flex-wrap:wrap; align-items:center; margin-top:24px; min-height:1.6em; font-family:'IBM Plex Mono',monospace; font-size:13.5px; color:#aeb8c6; letter-spacing:0.3px;">
+        <span style="color:#5cc8db; margin-right:10px;">$</span><span style="color:#8591a4; margin-right:8px;">focus →</span><span id="typed">routing &amp; switching</span><span class="ambient" aria-hidden="true" style="display:inline-block; width:8px; height:1.1em; background:#5cc8db; margin-left:4px; animation:blink 1.1s steps(1) infinite;"></span>
+      </div>
+
+      <div data-reveal data-delay="220" style="display:flex; flex-wrap:wrap; gap:14px; margin-top:38px;">
+        <a class="hv8" href="resume.pdf" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:9px; background:#5cc8db; color:#06101a; text-decoration:none; font-weight:600; font-size:15px; padding:13px 24px; border-radius:9px; transition:background .2s, transform .2s, box-shadow .2s;">Download Résumé <span style="font-size:13px;">↓</span></a>
+        <a class="hv9" href="#contact" style="display:inline-flex; align-items:center; gap:9px; background:transparent; color:#e9edf4; text-decoration:none; font-weight:500; font-size:15px; padding:13px 24px; border-radius:9px; border:1px solid #2a3446; transition:border-color .2s, background .2s;">Get in touch</a>
+      </div>
+
+      <div data-reveal data-delay="280" style="display:flex; flex-direction:column; gap:14px; margin-top:46px; font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#8591a4; letter-spacing:0.4px;">
+        <span><span style="color:#5cc8db;">$</span> Technical Support Analyst @ Pason Systems</span>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span style="color:#aeb8c6; background:#10151f; border:1px solid #232d3e; padding:4px 10px; border-radius:6px;">Security+</span>
+          <span style="color:#aeb8c6; background:#10151f; border:1px solid #232d3e; padding:4px 10px; border-radius:6px;">CCNA</span>
+          <span style="color:#aeb8c6; background:#10151f; border:1px solid #232d3e; padding:4px 10px; border-radius:6px;">Google Cybersecurity</span>
+          <span style="color:#aeb8c6; background:#10151f; border:1px solid #232d3e; padding:4px 10px; border-radius:6px;">AWS Cloud Practitioner</span>
+        </div>
+      </div>
+    </div>
+
+    <figure data-reveal data-delay="160" role="img" aria-label="Animated diagram of a simulated lab network. Traffic flows from the internet through a firewall and core switch to a directory server, a SIEM and a VLAN, while the firewall blocks hostile connections." style="position:relative; min-width:0; margin:0; background:#0d121c; border:1px solid #1c2434; border-radius:16px; overflow:hidden; box-shadow:0 30px 60px rgba(0,0,0,0.35);">
+      <div aria-hidden="true" style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:11px 16px; border-bottom:1px solid #1a2230; font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:0.5px; color:#8591a4;">
+        <span style="display:inline-flex; align-items:center; gap:8px;"><span class="ambient" style="width:6px; height:6px; border-radius:50%; background:#6fd6a8; animation:blink 1.8s ease-in-out infinite;"></span>LAB TOPOLOGY · SIMULATED</span>
+        <span>BLOCKED <span id="netblocked" style="color:#e0b256; font-variant-numeric:tabular-nums;">0</span></span>
+      </div>
+      <canvas id="netcanvas" aria-hidden="true" style="display:block; width:100%; aspect-ratio:16/11; max-width:100%;"></canvas>
+      <div id="netlog" aria-hidden="true" style="height:100px; padding:12px 16px; border-top:1px solid #1a2230; font-family:'IBM Plex Mono',monospace; font-size:11.5px; line-height:1.6; color:#aeb8c6; overflow:hidden;"></div>
+    </figure>
+    </div>
+  </header>
+
+  <!-- TOOLS MARQUEE -->
+  <div class="marquee" aria-hidden="true" style="border-top:1px solid #141b28; border-bottom:1px solid #141b28; background:#0c111a; overflow:hidden; padding:16px 0; -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);">
+    <div class="marquee-track">
+      <div class="marquee-group">
+        <span class="marquee-item">TCP/IP</span><span class="marquee-dot"></span><span class="marquee-item">OSPF</span><span class="marquee-dot"></span><span class="marquee-item">VLANs</span><span class="marquee-dot"></span><span class="marquee-item">Cisco CCNA</span><span class="marquee-dot"></span><span class="marquee-item">Active Directory</span><span class="marquee-dot"></span><span class="marquee-item">ServiceNow</span><span class="marquee-dot"></span><span class="marquee-item">Splunk</span><span class="marquee-dot"></span><span class="marquee-item">Datadog</span><span class="marquee-dot"></span><span class="marquee-item">AWS</span><span class="marquee-dot"></span><span class="marquee-item">Rocky Linux</span><span class="marquee-dot"></span><span class="marquee-item">Python</span><span class="marquee-dot"></span><span class="marquee-item">PowerShell</span><span class="marquee-dot"></span><span class="marquee-item">Bash</span><span class="marquee-dot"></span><span class="marquee-item">SQL</span><span class="marquee-dot"></span>
+      </div>
+      <div class="marquee-group" data-dup="1">
+        <span class="marquee-item">TCP/IP</span><span class="marquee-dot"></span><span class="marquee-item">OSPF</span><span class="marquee-dot"></span><span class="marquee-item">VLANs</span><span class="marquee-dot"></span><span class="marquee-item">Cisco CCNA</span><span class="marquee-dot"></span><span class="marquee-item">Active Directory</span><span class="marquee-dot"></span><span class="marquee-item">ServiceNow</span><span class="marquee-dot"></span><span class="marquee-item">Splunk</span><span class="marquee-dot"></span><span class="marquee-item">Datadog</span><span class="marquee-dot"></span><span class="marquee-item">AWS</span><span class="marquee-dot"></span><span class="marquee-item">Rocky Linux</span><span class="marquee-dot"></span><span class="marquee-item">Python</span><span class="marquee-dot"></span><span class="marquee-item">PowerShell</span><span class="marquee-dot"></span><span class="marquee-item">Bash</span><span class="marquee-dot"></span><span class="marquee-item">SQL</span><span class="marquee-dot"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- AT A GLANCE -->
+  <section aria-label="At a glance" style="padding:clamp(40px,6vh,64px) clamp(20px,5vw,56px) 0; max-width:1140px; margin:0 auto; width:100%;">
+    <div class="stats">
+      <div style="background:#0d121c; border:1px solid #1a2230; border-radius:14px; padding:22px 24px;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(34px,4vw,46px); letter-spacing:-1px; line-height:1; color:#f3f6fb; font-variant-numeric:tabular-nums;"><span data-count="4">4</span></div>
+        <div style="margin-top:12px; font-family:'IBM Plex Mono',monospace; font-size:12px; line-height:1.55; color:#8591a4;">Roles across IT support, operations and infrastructure</div>
+      </div>
+      <div style="background:#0d121c; border:1px solid #1a2230; border-radius:14px; padding:22px 24px;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(34px,4vw,46px); letter-spacing:-1px; line-height:1; color:#f3f6fb; font-variant-numeric:tabular-nums;"><span data-count="7">7</span></div>
+        <div style="margin-top:12px; font-family:'IBM Plex Mono',monospace; font-size:12px; line-height:1.55; color:#8591a4;">Projects across school, home lab and production work</div>
+      </div>
+      <div style="background:#0d121c; border:1px solid #1a2230; border-radius:14px; padding:22px 24px;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(34px,4vw,46px); letter-spacing:-1px; line-height:1; color:#f3f6fb; font-variant-numeric:tabular-nums;"><span data-count="4">4</span></div>
+        <div style="margin-top:12px; font-family:'IBM Plex Mono',monospace; font-size:12px; line-height:1.55; color:#8591a4;">Certifications: Security+, CCNA, Google Cybersecurity, AWS</div>
+      </div>
+      <div style="background:#0d121c; border:1px solid #1a2230; border-radius:14px; padding:22px 24px;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(34px,4vw,46px); letter-spacing:-1px; line-height:1; color:#5cc8db; font-variant-numeric:tabular-nums;"><span data-count="50" data-suffix="+">50+</span></div>
+        <div style="margin-top:12px; font-family:'IBM Plex Mono',monospace; font-size:12px; line-height:1.55; color:#8591a4;">Support tickets handled per week in my current role</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" style="scroll-margin-top:72px; padding:clamp(60px,9vh,110px) clamp(20px,5vw,56px); max-width:1140px; margin:0 auto; width:100%; border-top:1px solid #141b28;">
+    <div data-reveal style="font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:#5cc8db;">01 / About</div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:clamp(28px,5vw,72px); margin-top:30px; align-items:start;">
+      <h2 data-reveal style="margin:0; font-family:'Space Grotesk',sans-serif; font-weight:500; font-size:clamp(26px,3.6vw,38px); line-height:1.25; letter-spacing:-0.8px; color:#f3f6fb;">
+        I troubleshoot production systems, automate the repetitive, and keep access under control.
+      </h2>
+      <div data-reveal data-delay="100" style="font-size:clamp(15px,1.5vw,17px); color:#aeb8c6; line-height:1.8;">
+        <p style="margin:0 0 16px;">I'm a Calgary-based IT professional working in IT since 2022, across operational technology support, technical operations in a regulated fintech, and enterprise end-user computing. I'm currently a Technical Support Analyst at Pason Systems.</p>
+        <p style="margin:0;">My focus now is the intersection of networking, security and identity: Active Directory and access administration, routing and switching fundamentals, and automating recurring work with Python and PowerShell. I'm building toward identity and access management and cloud security.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" style="scroll-margin-top:72px; padding:clamp(60px,9vh,110px) clamp(20px,5vw,56px); max-width:1140px; margin:0 auto; width:100%; border-top:1px solid #141b28;">
+    <div data-reveal style="font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:#5cc8db;">02 / Experience</div>
+    <h2 data-reveal style="margin:14px 0 50px; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(28px,4vw,42px); letter-spacing:-1px; color:#f3f6fb;">Where I've worked</h2>
+
+    <div id="tlwrap" style="position:relative; padding-left:clamp(22px,4vw,34px);">
+      <div style="position:absolute; left:5px; top:6px; bottom:6px; width:1px; background:#232d3e;">
+        <div id="tlfill" style="position:absolute; left:0; top:0; width:1px; height:100%; background:#5cc8db; box-shadow:0 0 10px rgba(92,200,219,0.7); transform-origin:top; transform:scaleY(1);"></div>
+      </div>
+
+      <!-- Pason -->
+      <article data-reveal style="position:relative; padding-bottom:clamp(34px,5vw,52px);">
+        <span class="ambient" style="position:absolute; left:calc(-1 * clamp(22px,4vw,34px)); top:5px; transform:translateX(1px); width:11px; height:11px; border-radius:50%; background:#5cc8db; box-shadow:0 0 0 4px rgba(92,200,219,0.16); animation:ringPulse 2.8s ease-out infinite;"></span>
+        <div style="display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:6px 16px;">
+          <h3 style="margin:0; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(19px,2.2vw,23px); color:#f3f6fb;">Technical Support Analyst</h3>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#5cc8db; letter-spacing:0.5px;">Mar 2025 to Present</span>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:13.5px; color:#8d99ab; margin-top:6px;">Pason Systems · Calgary, AB</div>
+        <ul style="margin:16px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:10px;">
+          <li style="position:relative; padding-left:20px; color:#aeb8c6; font-size:15px; line-height:1.65;"><span style="position:absolute; left:0; top:9px; width:6px; height:1px; background:#5cc8db;"></span>Support domestic and international users of Pason's Electronic Drilling Recorder rig data system, troubleshooting rig-side Rocky Linux and Windows systems, WITSML data flows and Cisco networking hardware, with bilingual English and Spanish support.</li>
+          <li style="position:relative; padding-left:20px; color:#aeb8c6; font-size:15px; line-height:1.65;"><span style="position:absolute; left:0; top:9px; width:6px; height:1px; background:#5cc8db;"></span>Triage and resolve 50 to 100 Tier 1/2 incidents a week in ServiceNow under formal change management, investigating and escalating support and security-related incidents per documented procedures.</li>
+          <li style="position:relative; padding-left:20px; color:#aeb8c6; font-size:15px; line-height:1.65;"><span style="position:absolute; left:0; top:9px; width:6px; height:1px; background:#5cc8db;"></span>Build Python and PowerShell scripts that automate recurring triage and reporting, saving 1 to 3 hours a week, and administer Oracle CCS databases with access and data integrity controls.</li>
+        </ul>
+      </article>
+
+      <!-- Neo -->
+      <article data-reveal style="position:relative; padding-bottom:clamp(34px,5vw,52px);">
+        <span style="position:absolute; left:calc(-1 * clamp(22px,4vw,34px)); top:5px; transform:translateX(1px); width:11px; height:11px; border-radius:50%; background:#0a0e17; border:1.5px solid #3a4459;"></span>
+        <div style="display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:6px 16px;">
+          <h3 style="margin:0; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(19px,2.2vw,23px); color:#f3f6fb;">Technical Operations Analyst</h3>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#8d99ab; letter-spacing:0.5px;">Jan 2024 to Jul 2024</span>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:13.5px; color:#8d99ab; margin-top:6px;">Neo Financial · Calgary, AB</div>
+        <ul style="margin:16px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:10px;">
+          <li style="position:relative; padding-left:20px; color:#aeb8c6; font-size:15px; line-height:1.65;"><span style="position:absolute; left:0; top:9px; width:6px; height:1px; background:#5cc8db;"></span>Monitored system health with Datadog dashboards and triaged anomalies in a regulated fintech environment subject to PCI DSS and GDPR, resolving 20 to 50 tickets a week.</li>
+          <li style="position:relative; padding-left:20px; color:#aeb8c6; font-size:15px; line-height:1.65;"><span style="position:absolute; left:0; top:9px; width:6px; height:1px; background:#5cc8db;"></span>Investigated data flow irregularities and documented findings for technical and business stakeholders.</li>
+          <li style="position:relative; padding-left:20px; color:#aeb8c6; font-size:15px; line-height:1.65;"><span style="position:absolute; left:0; top:9px; width:6px; height:1px; background:#5cc8db;"></span>Built and maintained 5 to 10 SQL-driven reports and Power BI dashboards, and helped define repeatable procedures for recurring operational workflows.</li>
+        </ul>
+      </article>
+
+      <!-- ENMAX -->
+      <article data-reveal style="position:relative; padding-bottom:clamp(34px,5vw,52px);">
+        <span style="position:absolute; left:calc(-1 * clamp(22px,4vw,34px)); top:5px; transform:translateX(1px); width:11px; height:11px; border-radius:50%; background:#0a0e17; border:1.5px solid #3a4459;"></span>
+        <div style="display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:6px 16px;">
+          <h3 style="margin:0; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(19px,2.2vw,23px); color:#f3f6fb;">End-User Compute Co-op</h3>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#8d99ab; letter-spacing:0.5px;">May 2023 to Dec 2023</span>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:13.5px; color:#8d99ab; margin-top:6px;">ENMAX · Calgary, AB</div>
+        <ul style="margin:16px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:10px;">
+          <li style="position:relative; padding-left:20px; color:#aeb8c6; font-size:15px; line-height:1.65;"><span style="position:absolute; left:0; top:9px; width:6px; height:1px; background:#5cc8db;"></span>Administered Active Directory accounts, group policy and access controls across a 500 to 750 user environment, managing onboarding and offboarding.</li>
+          <li style="position:relative; padding-left:20px; color:#aeb8c6; font-size:15px; line-height:1.65;"><span style="position:absolute; left:0; top:9px; width:6px; height:1px; background:#5cc8db;"></span>Administered SharePoint sites, libraries and permissions through the Microsoft 365 admin centre, and supported SharePoint Online, OneDrive and Teams users.</li>
+          <li style="position:relative; padding-left:20px; color:#aeb8c6; font-size:15px; line-height:1.65;"><span style="position:absolute; left:0; top:9px; width:6px; height:1px; background:#5cc8db;"></span>Deployed and imaged Windows and macOS endpoints for 500+ devices, assisted with VMware virtual machine provisioning, and resolved 40+ tickets a week.</li>
+        </ul>
+      </article>
+
+      <!-- EllisDon -->
+      <article data-reveal style="position:relative;">
+        <span style="position:absolute; left:calc(-1 * clamp(22px,4vw,34px)); top:5px; transform:translateX(1px); width:11px; height:11px; border-radius:50%; background:#0a0e17; border:1.5px solid #3a4459;"></span>
+        <div style="display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:6px 16px;">
+          <h3 style="margin:0; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(19px,2.2vw,23px); color:#f3f6fb;">IT Support Analyst</h3>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#8d99ab; letter-spacing:0.5px;">2022</span>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:13.5px; color:#8d99ab; margin-top:6px;">EllisDon · Calgary, AB</div>
+        <ul style="margin:16px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:10px;">
+          <li style="position:relative; padding-left:20px; color:#aeb8c6; font-size:15px; line-height:1.65;"><span style="position:absolute; left:0; top:9px; width:6px; height:1px; background:#5cc8db;"></span>Administered Active Directory user accounts: account creation and disabling, password resets and unlocks, security group and access changes, and domain-joined computer objects.</li>
+          <li style="position:relative; padding-left:20px; color:#aeb8c6; font-size:15px; line-height:1.65;"><span style="position:absolute; left:0; top:9px; width:6px; height:1px; background:#5cc8db;"></span>Provided desk-side and help desk support for PCs, peripherals and mobile devices, resolving hardware and software issues for on-site and remote staff.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" style="scroll-margin-top:72px; padding:clamp(60px,9vh,110px) clamp(20px,5vw,56px); max-width:1140px; margin:0 auto; width:100%; border-top:1px solid #141b28;">
+    <div data-reveal style="font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:#5cc8db;">03 / Projects</div>
+    <h2 data-reveal style="margin:14px 0 6px; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(28px,4vw,42px); letter-spacing:-1px; color:#f3f6fb;">Selected projects</h2>
+    <p data-reveal style="margin:0; font-size:clamp(15px,1.5vw,17px); color:#9aa6b8; max-width:620px; line-height:1.7;">Hands-on work across coursework, home labs, and the job: networking, security operations, and automation.</p>
+
+    <!-- Group: School -->
+    <div data-reveal style="display:flex; align-items:center; gap:14px; margin:46px 0 20px;">
+      <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:18px; color:#e6ebf2;">School Projects</span>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#5cc8db; letter-spacing:0.5px;">NAIT</span>
+      <span style="flex:1; height:1px; background:#1a2230;"></span>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:16px;">
+
+      <article class="hv10" data-reveal style="background:#10151f; border:1px solid #1c2434; border-radius:14px; padding:24px; display:flex; flex-direction:column; transition:border-color .25s, transform .25s, box-shadow .25s;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#5cc8db; letter-spacing:1px;">P-01</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:1px; text-transform:uppercase; color:#8591a4; border:1px solid #232d3e; padding:3px 8px; border-radius:5px;">Capstone</span>
+        </div>
+        <h3 style="margin:0 0 10px; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:18px; line-height:1.3; color:#f3f6fb;">Enterprise Network Design &amp; Implementation</h3>
+        <p style="margin:0 0 16px; font-size:14px; line-height:1.65; color:#9aa6b8; flex:1;">Five-person team answering a simulated RFP to design and build IT infrastructure for a multi-site healthcare organization in a physical lab: VLAN-segmented networking across four sites, redundant dual-ISP firewalls with site-to-site VPN, Cisco switching, clustered Hyper-V with AD domain controllers, and Azure AD/M365 with MFA. My role: mobile and work-from-home solutions; I cabled and configured the physical topology and presented the live demo.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:7px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#86c9d6; background:rgba(92,200,219,.08); border:1px solid rgba(92,200,219,.18); padding:4px 9px; border-radius:5px;">Cisco</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#86c9d6; background:rgba(92,200,219,.08); border:1px solid rgba(92,200,219,.18); padding:4px 9px; border-radius:5px;">VLANs / VPN</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#86c9d6; background:rgba(92,200,219,.08); border:1px solid rgba(92,200,219,.18); padding:4px 9px; border-radius:5px;">Hyper-V / AD</span>
+        </div>
+      </article>
+
+      <article class="hv11" data-reveal style="background:#10151f; border:1px solid #1c2434; border-radius:14px; padding:24px; display:flex; flex-direction:column; transition:border-color .25s, transform .25s, box-shadow .25s;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#5cc8db; letter-spacing:1px;">P-02</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:1px; text-transform:uppercase; color:#8591a4; border:1px solid #232d3e; padding:3px 8px; border-radius:5px;">Recon</span>
+        </div>
+        <h3 style="margin:0 0 10px; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:18px; line-height:1.3; color:#f3f6fb;">Network Reconnaissance &amp; Vulnerability Scanning Lab</h3>
+        <p style="margin:0 0 16px; font-size:14px; line-height:1.65; color:#9aa6b8; flex:1;">Ran nmap SYN, UDP and service-version scans against a Windows Server target and compared its attack surface before and after promoting it to a domain controller; scanned a multi-host subnet and mapped the topology in Visio, prioritizing the highest-value targets.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:7px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#86c9d6; background:rgba(92,200,219,.08); border:1px solid rgba(92,200,219,.18); padding:4px 9px; border-radius:5px;">nmap</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#86c9d6; background:rgba(92,200,219,.08); border:1px solid rgba(92,200,219,.18); padding:4px 9px; border-radius:5px;">Attack Surface</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#86c9d6; background:rgba(92,200,219,.08); border:1px solid rgba(92,200,219,.18); padding:4px 9px; border-radius:5px;">Visio</span>
+        </div>
+      </article>
+
+      <article class="hv12" data-reveal style="background:#10151f; border:1px solid #1c2434; border-radius:14px; padding:24px; display:flex; flex-direction:column; transition:border-color .25s, transform .25s, box-shadow .25s;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#5cc8db; letter-spacing:1px;">P-03</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:1px; text-transform:uppercase; color:#8591a4; border:1px solid #232d3e; padding:3px 8px; border-radius:5px;">Ethical Hacking</span>
+        </div>
+        <h3 style="margin:0 0 10px; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:18px; line-height:1.3; color:#f3f6fb;">Credential Attack &amp; Password Recovery Lab</h3>
+        <p style="margin:0 0 16px; font-size:14px; line-height:1.65; color:#9aa6b8; flex:1;">Found a critical remote code execution flaw (MS08-067) on a Windows XP VM with Kali and nmap scripts; when exploitation failed, booted the target from a Kali live image, extracted the SAM database and cracked the hashes to assess password strength across 10+ accounts.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:7px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#86c9d6; background:rgba(92,200,219,.08); border:1px solid rgba(92,200,219,.18); padding:4px 9px; border-radius:5px;">Kali Linux</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#86c9d6; background:rgba(92,200,219,.08); border:1px solid rgba(92,200,219,.18); padding:4px 9px; border-radius:5px;">Metasploit</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#86c9d6; background:rgba(92,200,219,.08); border:1px solid rgba(92,200,219,.18); padding:4px 9px; border-radius:5px;">Password Audit</span>
+        </div>
+      </article>
+    </div>
+
+    <!-- Group: Home Lab -->
+    <div data-reveal style="display:flex; align-items:center; gap:14px; margin:46px 0 20px;">
+      <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:18px; color:#e6ebf2;">Labs &amp; Assessments</span>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#5cc8db; letter-spacing:0.5px;">HOME LAB · NAIT</span>
+      <span style="flex:1; height:1px; background:#1a2230;"></span>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:16px;">
+
+      <article class="hv13" data-reveal style="background:#10151f; border:1px solid #1c2434; border-radius:14px; padding:24px; display:flex; flex-direction:column; transition:border-color .25s, transform .25s, box-shadow .25s;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#5cc8db; letter-spacing:1px;">P-04</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:1px; text-transform:uppercase; color:#8591a4; border:1px solid #232d3e; padding:3px 8px; border-radius:5px;">Cloud Security</span>
+        </div>
+        <h3 style="margin:0 0 10px; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:18px; line-height:1.3; color:#f3f6fb;">AWS Cloud Security Home Lab</h3>
+        <p style="margin:0 0 16px; font-size:14px; line-height:1.65; color:#9aa6b8; flex:1;">Built EC2, IAM and S3 resources in a personal AWS account and traced activity in CloudTrail; enabled Security Hub and GuardDuty and remediated findings: MFA on the root user, public access blocked on an S3 bucket, and an overly broad IAM policy tightened to least privilege.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:7px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#86c9d6; background:rgba(92,200,219,.08); border:1px solid rgba(92,200,219,.18); padding:4px 9px; border-radius:5px;">AWS IAM</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#86c9d6; background:rgba(92,200,219,.08); border:1px solid rgba(92,200,219,.18); padding:4px 9px; border-radius:5px;">Security Hub / GuardDuty</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#86c9d6; background:rgba(92,200,219,.08); border:1px solid rgba(92,200,219,.18); padding:4px 9px; border-radius:5px;">Least Privilege</span>
+        </div>
+      </article>
+
+      <article class="hv14" data-reveal style="background:#10151f; border:1px solid #1c2434; border-radius:14px; padding:24px; display:flex; flex-direction:column; transition:border-color .25s, transform .25s, box-shadow .25s;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#5cc8db; letter-spacing:1px;">P-05</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:1px; text-transform:uppercase; color:#8591a4; border:1px solid #232d3e; padding:3px 8px; border-radius:5px;">Physical Security</span>
+        </div>
+        <h3 style="margin:0 0 10px; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:18px; line-height:1.3; color:#f3f6fb;">Physical Security Vulnerability Assessment</h3>
+        <p style="margin:0 0 16px; font-size:14px; line-height:1.65; color:#9aa6b8; flex:1;">NAIT ethical hacking assessment: walked a campus facility and photo-documented 20+ vulnerabilities, including exposed network jacks, unsecured wiring closets, unattended equipment, open public WiFi and unauthorized devices on the network.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:7px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#86c9d6; background:rgba(92,200,219,.08); border:1px solid rgba(92,200,219,.18); padding:4px 9px; border-radius:5px;">Risk Assessment</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#86c9d6; background:rgba(92,200,219,.08); border:1px solid rgba(92,200,219,.18); padding:4px 9px; border-radius:5px;">20+ Findings</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#86c9d6; background:rgba(92,200,219,.08); border:1px solid rgba(92,200,219,.18); padding:4px 9px; border-radius:5px;">Documentation</span>
+        </div>
+      </article>
+    </div>
+
+    <!-- Group: Work -->
+    <div data-reveal style="display:flex; align-items:center; gap:14px; margin:46px 0 20px;">
+      <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:18px; color:#e6ebf2;">Work Projects</span>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#5cc8db; letter-spacing:0.5px;">PASON SYSTEMS · NEO FINANCIAL</span>
+      <span style="flex:1; height:1px; background:#1a2230;"></span>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:16px;">
+
+      <article class="hv15" data-reveal style="background:#10151f; border:1px solid #1c2434; border-radius:14px; padding:24px; display:flex; flex-direction:column; transition:border-color .25s, transform .25s, box-shadow .25s;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#5cc8db; letter-spacing:1px;">P-06</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:1px; text-transform:uppercase; color:#8591a4; border:1px solid #232d3e; padding:3px 8px; border-radius:5px;">Automation</span>
+        </div>
+        <h3 style="margin:0 0 10px; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:18px; line-height:1.3; color:#f3f6fb;">Support Workflow Automation</h3>
+        <p style="margin:0 0 16px; font-size:14px; line-height:1.65; color:#9aa6b8; flex:1;">At Pason, built Python and PowerShell scripts that automate recurring triage and reporting tasks, saving 1 to 3 hours a week once rolled into the daily workflow.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:7px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#86c9d6; background:rgba(92,200,219,.08); border:1px solid rgba(92,200,219,.18); padding:4px 9px; border-radius:5px;">Python</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#86c9d6; background:rgba(92,200,219,.08); border:1px solid rgba(92,200,219,.18); padding:4px 9px; border-radius:5px;">PowerShell</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#86c9d6; background:rgba(92,200,219,.08); border:1px solid rgba(92,200,219,.18); padding:4px 9px; border-radius:5px;">1 to 3 hrs/week saved</span>
+        </div>
+      </article>
+
+      <article class="hv16" data-reveal style="background:#10151f; border:1px solid #1c2434; border-radius:14px; padding:24px; display:flex; flex-direction:column; transition:border-color .25s, transform .25s, box-shadow .25s;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#5cc8db; letter-spacing:1px;">P-07</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:1px; text-transform:uppercase; color:#8591a4; border:1px solid #232d3e; padding:3px 8px; border-radius:5px;">Reporting</span>
+        </div>
+        <h3 style="margin:0 0 10px; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:18px; line-height:1.3; color:#f3f6fb;">Operational Monitoring Reports</h3>
+        <p style="margin:0 0 16px; font-size:14px; line-height:1.65; color:#9aa6b8; flex:1;">At Neo Financial, built and maintained 5 to 10 SQL-driven reports and Power BI dashboards for operational monitoring in a PCI DSS and GDPR environment, alongside Datadog health dashboards.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:7px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#86c9d6; background:rgba(92,200,219,.08); border:1px solid rgba(92,200,219,.18); padding:4px 9px; border-radius:5px;">SQL</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#86c9d6; background:rgba(92,200,219,.08); border:1px solid rgba(92,200,219,.18); padding:4px 9px; border-radius:5px;">Power BI</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#86c9d6; background:rgba(92,200,219,.08); border:1px solid rgba(92,200,219,.18); padding:4px 9px; border-radius:5px;">Datadog</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" style="scroll-margin-top:72px; padding:clamp(60px,9vh,110px) clamp(20px,5vw,56px); max-width:1140px; margin:0 auto; width:100%; border-top:1px solid #141b28;">
+    <div data-reveal style="font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:#5cc8db;">04 / Skills</div>
+    <h2 data-reveal style="margin:14px 0 44px; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(28px,4vw,42px); letter-spacing:-1px; color:#f3f6fb;">Technical toolkit</h2>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr)); gap:18px;">
+      <div class="hv17" data-reveal style="background:#10151f; border:1px solid #1c2434; border-radius:14px; padding:24px; transition:border-color .25s, transform .25s;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:17px; color:#f3f6fb; margin-bottom:16px;">Networking</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#bcc6d4; background:#161d2b; border:1px solid #232d3e; padding:5px 11px; border-radius:6px;">TCP/IP</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#bcc6d4; background:#161d2b; border:1px solid #232d3e; padding:5px 11px; border-radius:6px;">Routing &amp; Switching</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#bcc6d4; background:#161d2b; border:1px solid #232d3e; padding:5px 11px; border-radius:6px;">VLANs</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#bcc6d4; background:#161d2b; border:1px solid #232d3e; padding:5px 11px; border-radius:6px;">DNS / DHCP</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#bcc6d4; background:#161d2b; border:1px solid #232d3e; padding:5px 11px; border-radius:6px;">Firewalls</span>
+        </div>
+      </div>
+
+      <div class="hv18" data-reveal data-delay="80" style="background:#10151f; border:1px solid #1c2434; border-radius:14px; padding:24px; transition:border-color .25s, transform .25s;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:17px; color:#f3f6fb; margin-bottom:16px;">Security</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#bcc6d4; background:#161d2b; border:1px solid #232d3e; padding:5px 11px; border-radius:6px;">Security+</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#bcc6d4; background:#161d2b; border:1px solid #232d3e; padding:5px 11px; border-radius:6px;">Least Privilege</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#bcc6d4; background:#161d2b; border:1px solid #232d3e; padding:5px 11px; border-radius:6px;">Vulnerability Scanning</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#bcc6d4; background:#161d2b; border:1px solid #232d3e; padding:5px 11px; border-radius:6px;">IAM</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#bcc6d4; background:#161d2b; border:1px solid #232d3e; padding:5px 11px; border-radius:6px;">Incident Response</span>
+        </div>
+      </div>
+
+      <div class="hv19" data-reveal data-delay="160" style="background:#10151f; border:1px solid #1c2434; border-radius:14px; padding:24px; transition:border-color .25s, transform .25s;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:17px; color:#f3f6fb; margin-bottom:16px;">Scripting &amp; Automation</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#bcc6d4; background:#161d2b; border:1px solid #232d3e; padding:5px 11px; border-radius:6px;">Python</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#bcc6d4; background:#161d2b; border:1px solid #232d3e; padding:5px 11px; border-radius:6px;">PowerShell</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#bcc6d4; background:#161d2b; border:1px solid #232d3e; padding:5px 11px; border-radius:6px;">Bash</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#bcc6d4; background:#161d2b; border:1px solid #232d3e; padding:5px 11px; border-radius:6px;">SQL</span>
+        </div>
+      </div>
+
+      <div class="hv20" data-reveal data-delay="240" style="background:#10151f; border:1px solid #1c2434; border-radius:14px; padding:24px; transition:border-color .25s, transform .25s;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:17px; color:#f3f6fb; margin-bottom:16px;">Tools &amp; Platforms</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#bcc6d4; background:#161d2b; border:1px solid #232d3e; padding:5px 11px; border-radius:6px;">ServiceNow</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#bcc6d4; background:#161d2b; border:1px solid #232d3e; padding:5px 11px; border-radius:6px;">Active Directory</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#bcc6d4; background:#161d2b; border:1px solid #232d3e; padding:5px 11px; border-radius:6px;">Splunk</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#bcc6d4; background:#161d2b; border:1px solid #232d3e; padding:5px 11px; border-radius:6px;">Datadog</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#bcc6d4; background:#161d2b; border:1px solid #232d3e; padding:5px 11px; border-radius:6px;">Power BI</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#bcc6d4; background:#161d2b; border:1px solid #232d3e; padding:5px 11px; border-radius:6px;">SolarWinds</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#bcc6d4; background:#161d2b; border:1px solid #232d3e; padding:5px 11px; border-radius:6px;">Group Policy</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#bcc6d4; background:#161d2b; border:1px solid #232d3e; padding:5px 11px; border-radius:6px;">AWS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certs" style="scroll-margin-top:72px; padding:clamp(60px,9vh,110px) clamp(20px,5vw,56px); max-width:1140px; margin:0 auto; width:100%; border-top:1px solid #141b28;">
+    <div data-reveal style="font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:#5cc8db;">05 / Certifications</div>
+    <h2 data-reveal style="margin:14px 0 44px; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(28px,4vw,42px); letter-spacing:-1px; color:#f3f6fb;">Credentials</h2>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr)); gap:18px;">
+      <div data-reveal style="position:relative; background:linear-gradient(160deg,#121a26,#0e131d); border:1px solid #243446; border-radius:16px; padding:26px; overflow:hidden;">
+        <div style="position:absolute; top:-40px; right:-40px; width:140px; height:140px; background:radial-gradient(circle, rgba(92,200,219,0.14), transparent 70%);"></div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:1px; color:#86c9d6;">COMPTIA</span>
+          <span style="display:inline-flex; align-items:center; gap:5px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:#6fd6a8;"><span style="width:6px; height:6px; border-radius:50%; background:#6fd6a8;"></span>Earned</span>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:22px; color:#f3f6fb;">Security+</div>
+        <div style="font-size:13.5px; color:#8d99ab; margin-top:6px;">Core cybersecurity competencies</div>
+      </div>
+
+      <div data-reveal data-delay="90" style="position:relative; background:linear-gradient(160deg,#121a26,#0e131d); border:1px solid #243446; border-radius:16px; padding:26px; overflow:hidden;">
+        <div style="position:absolute; top:-40px; right:-40px; width:140px; height:140px; background:radial-gradient(circle, rgba(92,200,219,0.14), transparent 70%);"></div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:1px; color:#86c9d6;">CISCO</span>
+          <span style="display:inline-flex; align-items:center; gap:5px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:#6fd6a8;"><span style="width:6px; height:6px; border-radius:50%; background:#6fd6a8;"></span>Earned</span>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:22px; color:#f3f6fb;">CCNA</div>
+        <div style="font-size:13.5px; color:#8d99ab; margin-top:6px;">Routing, switching &amp; network fundamentals</div>
+      </div>
+
+      <div data-reveal data-delay="180" style="position:relative; background:linear-gradient(160deg,#121a26,#0e131d); border:1px solid #243446; border-radius:16px; padding:26px; overflow:hidden;">
+        <div style="position:absolute; top:-40px; right:-40px; width:140px; height:140px; background:radial-gradient(circle, rgba(92,200,219,0.14), transparent 70%);"></div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:1px; color:#86c9d6;">GOOGLE</span>
+          <span style="display:inline-flex; align-items:center; gap:5px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:#6fd6a8;"><span style="width:6px; height:6px; border-radius:50%; background:#6fd6a8;"></span>Earned</span>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:22px; color:#f3f6fb;">Cybersecurity Professional Certificate</div>
+        <div style="font-size:13.5px; color:#8d99ab; margin-top:6px;">Linux, SQL, Python, SIEM and incident response fundamentals</div>
+      </div>
+
+      <div data-reveal data-delay="270" style="position:relative; background:linear-gradient(160deg,#121a26,#0e131d); border:1px solid #243446; border-radius:16px; padding:26px; overflow:hidden;">
+        <div style="position:absolute; top:-40px; right:-40px; width:140px; height:140px; background:radial-gradient(circle, rgba(92,200,219,0.14), transparent 70%);"></div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:1px; color:#86c9d6;">AWS</span>
+          <span style="display:inline-flex; align-items:center; gap:5px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:#6fd6a8;"><span style="width:6px; height:6px; border-radius:50%; background:#6fd6a8;"></span>Earned</span>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:22px; color:#f3f6fb;">Cloud Practitioner</div>
+        <div style="font-size:13.5px; color:#8d99ab; margin-top:6px;">Cloud concepts, security and core AWS services</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" style="scroll-margin-top:72px; padding:clamp(60px,9vh,110px) clamp(20px,5vw,56px); max-width:1140px; margin:0 auto; width:100%; border-top:1px solid #141b28;">
+    <div data-reveal style="font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:#5cc8db;">06 / Education</div>
+    <h2 data-reveal style="margin:14px 0 44px; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(28px,4vw,42px); letter-spacing:-1px; color:#f3f6fb;">Education</h2>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:18px;">
+      <div data-reveal style="background:#10151f; border:1px solid #1c2434; border-radius:14px; padding:28px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:1px; color:#5cc8db; margin-bottom:14px;">NAIT</div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:19px; color:#f3f6fb; line-height:1.35;">Bachelor of Applied Information Systems Technology</div>
+        <div style="font-size:14.5px; color:#9aa6b8; margin-top:8px;">Major in Network Management</div>
+      </div>
+      <div data-reveal data-delay="100" style="background:#10151f; border:1px solid #1c2434; border-radius:14px; padding:28px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:1px; color:#5cc8db; margin-bottom:14px;">SAIT</div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:19px; color:#f3f6fb; line-height:1.35;">Diploma in Information Technology</div>
+        <div style="font-size:14.5px; color:#9aa6b8; margin-top:8px;">Foundations in systems &amp; infrastructure</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="scroll-margin-top:72px; padding:clamp(70px,11vh,130px) clamp(20px,5vw,56px) clamp(50px,7vh,80px); max-width:1140px; margin:0 auto; width:100%; border-top:1px solid #141b28;">
+    <div data-reveal style="font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:#5cc8db;">07 / Contact</div>
+    <h2 data-reveal style="margin:16px 0 0; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(32px,5.5vw,58px); letter-spacing:-1.5px; color:#f3f6fb; max-width:760px; line-height:1.08;">
+      Let's talk infrastructure &amp; security.
+    </h2>
+    <p data-reveal data-delay="80" style="margin:20px 0 38px; font-size:clamp(15px,1.6vw,18px); color:#9aa6b8; max-width:560px; line-height:1.7;">
+      Open to opportunities in identity and access management, cybersecurity, and IT operations. The fastest way to reach me:
+    </p>
+
+    <div data-reveal data-delay="140" style="display:flex; flex-wrap:wrap; gap:14px;">
+      <a class="hv21" href="mailto:abdullahk979@gmail.com" style="display:inline-flex; align-items:center; gap:11px; background:#10151f; border:1px solid #243446; border-radius:12px; padding:16px 22px; text-decoration:none; transition:border-color .2s, transform .2s;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#5cc8db;">EMAIL</span>
+        <span style="font-size:15px; color:#e9edf4; font-weight:500;">abdullahk979@gmail.com</span>
+      </a>
+      <a class="hv22" href="https://www.linkedin.com/in/abdullkhan" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:11px; background:#10151f; border:1px solid #243446; border-radius:12px; padding:16px 22px; text-decoration:none; transition:border-color .2s, transform .2s;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#5cc8db;">LINKEDIN</span>
+        <span style="font-size:15px; color:#e9edf4; font-weight:500;">/in/abdullkhan</span>
+      </a>
+      <a class="hv23" href="resume.pdf" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:11px; background:#5cc8db; border:1px solid #5cc8db; border-radius:12px; padding:16px 22px; text-decoration:none; color:#06101a; font-weight:600; font-size:15px; transition:background .2s, transform .2s;">Download Résumé ↓</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="border-top:1px solid #141b28; padding:28px clamp(20px,5vw,56px); max-width:1140px; margin:0 auto; width:100%; display:flex; flex-wrap:wrap; gap:10px 20px; align-items:center; justify-content:space-between;">
+    <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#7f8b9d;">© 2026 Abdullah Khan</span>
+    <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#7f8b9d;">Calgary, AB · IT Operations, Networking &amp; Security</span>
+  </footer>
+
+</div>
+<script>
+class DCLogic {}
+class Component extends DCLogic {
+  componentDidMount() {
+    if (typeof window === 'undefined') return;
+    try { this.initExtras(); } catch (err) { /* motion is decoration; never block the page */ }
+
+    // Active nav highlighting
+    const navLinks = Array.from(document.querySelectorAll('[data-nav]'));
+    const sections = navLinks
+      .map((a) => document.getElementById(a.getAttribute('data-nav')))
+      .filter(Boolean);
+    const navIO = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          const id = e.target.id;
+          navLinks.forEach((a) => {
+            a.style.color = a.getAttribute('data-nav') === id ? '#e9edf4' : '#9aa6b8';
+          });
+        }
+      });
+    }, { threshold: 0.4, rootMargin: '-20% 0px -60% 0px' });
+    sections.forEach((s) => navIO.observe(s));
+
+    this._cleanup = () => { navIO.disconnect(); };
+  }
+
+  componentWillUnmount() {
+    if (this._cleanup) this._cleanup();
+    (this._extraCleanups || []).forEach((f) => { try { f(); } catch (err) {} });
+  }
+
+  initExtras() {
+    const cl = (this._extraCleanups = []);
+    const on = (t, ev, fn, o) => { t.addEventListener(ev, fn, o); cl.push(() => t.removeEventListener(ev, fn, o)); };
+    const reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+    const $ = (id) => document.getElementById(id);
+
+    // ---- Scroll: page progress bar + experience timeline fill ----
+    const bar = $('scrollbar'), fill = $('tlfill'), tl = $('tlwrap'), hdr = $('top');
+    const nav = document.querySelector('nav'), foot = document.querySelector('footer');
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const vh = window.innerHeight || 800;
+      if (bar && hdr && foot) {
+        const top0 = nav ? nav.offsetHeight : 0;
+        const ht = hdr.getBoundingClientRect().top;
+        const total = foot.getBoundingClientRect().bottom - ht + top0 - vh;
+        bar.style.transform = 'scaleX(' + (total > 0 ? clamp((top0 - ht) / total, 0, 1) : 0) + ')';
+      }
+      if (fill && tl) {
+        const r = tl.getBoundingClientRect();
+        fill.style.transform = 'scaleY(' + clamp((vh * 0.7 - r.top) / Math.max(1, r.height), 0, 1) + ')';
+      }
+    };
+    const schedule = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+    on(document, 'scroll', schedule, { capture: true, passive: true });
+    on(window, 'resize', schedule);
+    update();
+
+    // ---- Cursor spotlight on cards ----
+    const canHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
+    if (canHover && !reduce) {
+      document.querySelectorAll('#projects article, #skills > div:last-child > div').forEach((c) => {
+        if (getComputedStyle(c).position === 'static') c.style.position = 'relative';
+        const s = document.createElement('div');
+        s.setAttribute('aria-hidden', 'true');
+        s.style.cssText = 'position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .25s;background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%), rgba(92,200,219,0.10), transparent 70%);';
+        c.insertBefore(s, c.firstChild);
+        on(c, 'pointermove', (e) => {
+          const r = c.getBoundingClientRect();
+          s.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+          s.style.setProperty('--my', (e.clientY - r.top) + 'px');
+          s.style.opacity = '1';
+        });
+        on(c, 'pointerleave', () => { s.style.opacity = '0'; });
+      });
+    }
+
+    // ---- Typed focus line ----
+    const typed = $('typed');
+    if (typed && !reduce) {
+      const words = ['routing & switching', 'identity & access', 'automation', 'cloud security'];
+      let w = 0, text = words[0], mode = 'hold', timer = 0;
+      const loop = () => {
+        if (mode === 'hold') { mode = 'del'; timer = setTimeout(loop, 2200); return; }
+        if (mode === 'del') {
+          text = text.slice(0, -1); typed.textContent = text;
+          if (!text) { w = (w + 1) % words.length; mode = 'type'; }
+          timer = setTimeout(loop, 28); return;
+        }
+        text = words[w].slice(0, text.length + 1); typed.textContent = text;
+        if (text === words[w]) mode = 'hold';
+        timer = setTimeout(loop, 60);
+      };
+      timer = setTimeout(loop, 2200);
+      cl.push(() => clearTimeout(timer));
+    }
+
+    // ---- Count-up stats (values stay final until the stat scrolls into view) ----
+    const counters = Array.from(document.querySelectorAll('[data-count]'));
+    if (counters.length && !reduce && 'IntersectionObserver' in window) {
+      const run = (el) => {
+        const target = +el.getAttribute('data-count');
+        const suffix = el.getAttribute('data-suffix') || '';
+        const t0 = performance.now();
+        const tick = (now) => {
+          const k = Math.min(1, (now - t0) / 1400);
+          el.textContent = Math.round(target * (1 - Math.pow(1 - k, 3))) + suffix;
+          if (k < 1) requestAnimationFrame(tick);
+        };
+        el.textContent = '0' + suffix;
+        requestAnimationFrame(tick);
+      };
+      const cio = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { cio.unobserve(e.target); run(e.target); } });
+      }, { threshold: 0.6 });
+      counters.forEach((el) => cio.observe(el));
+      cl.push(() => cio.disconnect());
+    }
+
+    // ---- Hero: simulated network with packets and a firewall that blocks threats ----
+    const cv = $('netcanvas'), logEl = $('netlog'), cnt = $('netblocked');
+    const ctx = cv && cv.getContext ? cv.getContext('2d') : null;
+    if (!ctx) return;
+    const COL = { cy: '#5cc8db', cyDim: 'rgba(92,200,219,0.35)', link: '#233042', fill: '#111826', txt: '#9aa6b8', amber: '#e0b256', green: '#6fd6a8' };
+    const N = [
+      { x: 0.10, y: 0.50, k: 'wan', l: 'WAN' },
+      { x: 0.32, y: 0.50, k: 'fw', l: 'FIREWALL' },
+      { x: 0.56, y: 0.50, k: 'sw', l: 'CORE' },
+      { x: 0.85, y: 0.20, k: 'ad', l: 'AD' },
+      { x: 0.89, y: 0.50, k: 'siem', l: 'SIEM' },
+      { x: 0.85, y: 0.80, k: 'pc', l: 'VLAN 20' }
+    ];
+    const E = [[0, 1], [1, 2], [2, 3], [2, 4], [2, 5]];
+    const ROUTES = [[0, 1, 2, 3], [0, 1, 2, 4], [0, 1, 2, 5], [5, 2, 1, 0], [3, 2, 4]];
+    const OKS = ['OSPF area 0 · neighbor FULL', 'VLAN 20 → 10.20.0.0/24 routed', 'AD auth ok · svc-sync', 'SIEM ingest · syslog 514/udp', 'STP root stable · no topology change'];
+    const DENY = ['tcp/22 203.0.113.9 → DMZ', 'tcp/3389 198.51.100.23', 'udp/53 flood 192.0.2.77', 'icmp sweep 203.0.113.41'];
+    const pick = (a) => a[Math.floor(Math.random() * a.length)];
+
+    let W = 1, H = 1, R = 18, P = N.map(() => ({ x: 0, y: 0 }));
+    let pk = [], rip = [], blocked = 0, spawnT = 0.2, thrT = 1.8, last = 0, raf = 0, running = false;
+    const glow = N.map(() => 0), gcol = N.map(() => COL.cy), logs = [];
+
+    const pushLog = (kind, msg) => {
+      logs.push({ kind, msg });
+      while (logs.length > 4) logs.shift();
+      if (!logEl) return;
+      while (logEl.firstChild) logEl.removeChild(logEl.firstChild);
+      logs.forEach((l) => {
+        const d = document.createElement('div');
+        d.style.cssText = 'display:flex;gap:10px;white-space:nowrap;overflow:hidden;';
+        const a = document.createElement('span');
+        a.textContent = l.kind === 'deny' ? '[DENY]' : '[ OK ]';
+        a.style.cssText = 'flex:none;color:' + (l.kind === 'deny' ? COL.amber : COL.green) + ';';
+        const b = document.createElement('span');
+        b.textContent = l.msg;
+        b.style.cssText = 'min-width:0;overflow:hidden;text-overflow:ellipsis;';
+        d.appendChild(a); d.appendChild(b); logEl.appendChild(d);
+      });
+    };
+
+    const icon = (k, x, y, r) => {
+      const s = r * 0.5;
+      ctx.strokeStyle = COL.cy; ctx.fillStyle = COL.cy; ctx.lineWidth = 1.5; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+      ctx.beginPath();
+      if (k === 'wan') {
+        ctx.arc(x, y, s, 0, 6.283); ctx.moveTo(x - s, y); ctx.lineTo(x + s, y);
+        ctx.moveTo(x + s * 0.45, y); ctx.ellipse(x, y, s * 0.45, s, 0, 0, 6.283);
+      } else if (k === 'fw') {
+        ctx.moveTo(x, y - s * 1.05); ctx.lineTo(x + s * 0.85, y - s * 0.6); ctx.lineTo(x + s * 0.85, y + s * 0.1);
+        ctx.quadraticCurveTo(x + s * 0.85, y + s * 0.8, x, y + s * 1.1);
+        ctx.quadraticCurveTo(x - s * 0.85, y + s * 0.8, x - s * 0.85, y + s * 0.1);
+        ctx.lineTo(x - s * 0.85, y - s * 0.6); ctx.closePath();
+      } else if (k === 'sw') {
+        ctx.rect(x - s * 1.1, y - s * 0.55, s * 2.2, s * 1.1);
+        for (let j = 0; j < 4; j++) { ctx.moveTo(x - s * 0.75 + j * s * 0.5, y + s * 0.05); ctx.lineTo(x - s * 0.75 + j * s * 0.5, y + s * 0.3); }
+      } else if (k === 'ad') {
+        ctx.arc(x, y - s * 0.4, s * 0.38, 0, 6.283); ctx.moveTo(x - s * 0.8, y + s * 0.85);
+        ctx.quadraticCurveTo(x, y - s * 0.15, x + s * 0.8, y + s * 0.85);
+      } else if (k === 'siem') {
+        ctx.moveTo(x - s * 0.7, y + s * 0.7); ctx.lineTo(x - s * 0.7, y + s * 0.0);
+        ctx.moveTo(x, y + s * 0.7); ctx.lineTo(x, y - s * 0.7);
+        ctx.moveTo(x + s * 0.7, y + s * 0.7); ctx.lineTo(x + s * 0.7, y - s * 0.3);
+        ctx.lineWidth = 2.5;
+      } else {
+        ctx.rect(x - s * 0.9, y - s * 0.7, s * 1.8, s * 1.1);
+        ctx.moveTo(x, y + s * 0.4); ctx.lineTo(x, y + s * 0.8); ctx.moveTo(x - s * 0.5, y + s * 0.8); ctx.lineTo(x + s * 0.5, y + s * 0.8);
+      }
+      ctx.stroke();
+    };
+
+    const draw = () => {
+      ctx.clearRect(0, 0, W, H);
+      ctx.lineWidth = 1.5; ctx.strokeStyle = COL.link;
+      E.forEach((e) => { ctx.beginPath(); ctx.moveTo(P[e[0]].x, P[e[0]].y); ctx.lineTo(P[e[1]].x, P[e[1]].y); ctx.stroke(); });
+
+      pk.forEach((p) => {
+        const a = P[p.path[p.i]], b = P[p.path[p.i + 1]];
+        const x = a.x + (b.x - a.x) * p.t, y = a.y + (b.y - a.y) * p.t;
+        const len = Math.hypot(b.x - a.x, b.y - a.y) || 1, ux = (b.x - a.x) / len, uy = (b.y - a.y) / len;
+        const col = p.threat ? COL.amber : COL.cy, clear = p.threat ? 'rgba(224,178,86,0)' : 'rgba(92,200,219,0)';
+        const tail = p.threat ? 18 : 14;
+        const g = ctx.createLinearGradient(x - ux * tail, y - uy * tail, x, y);
+        g.addColorStop(0, clear); g.addColorStop(1, col);
+        ctx.strokeStyle = g; ctx.lineWidth = 2.5; ctx.lineCap = 'round';
+        ctx.beginPath(); ctx.moveTo(x - ux * tail, y - uy * tail); ctx.lineTo(x, y); ctx.stroke();
+        ctx.shadowColor = col; ctx.shadowBlur = 10; ctx.fillStyle = col;
+        ctx.beginPath();
+        if (p.threat) { ctx.moveTo(x, y - 4.5); ctx.lineTo(x + 4.5, y); ctx.lineTo(x, y + 4.5); ctx.lineTo(x - 4.5, y); ctx.closePath(); }
+        else { ctx.arc(x, y, 3, 0, 6.283); }
+        ctx.fill(); ctx.shadowBlur = 0;
+      });
+
+      const fs = Math.max(9, Math.min(11, W * 0.022));
+      N.forEach((n, i) => {
+        const x = P[i].x, y = P[i].y, r = n.k === 'fw' ? R * 1.2 : R;
+        if (glow[i] > 0.02) {
+          ctx.globalAlpha = glow[i]; ctx.strokeStyle = gcol[i]; ctx.lineWidth = 2;
+          ctx.beginPath(); ctx.arc(x, y, r + 3 + (1 - glow[i]) * 8, 0, 6.283); ctx.stroke(); ctx.globalAlpha = 1;
+        }
+        ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fillStyle = COL.fill; ctx.fill();
+        ctx.lineWidth = 1.5; ctx.strokeStyle = COL.cyDim; ctx.stroke();
+        icon(n.k, x, y, r);
+        ctx.font = '500 ' + fs + "px 'IBM Plex Mono', monospace"; ctx.textAlign = 'center'; ctx.fillStyle = COL.txt;
+        ctx.fillText(n.l, x, y + r + 14);
+      });
+
+      rip.forEach((q) => {
+        ctx.globalAlpha = 1 - q.life; ctx.strokeStyle = COL.amber; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.arc(q.x, q.y, R * 1.2 + q.life * 36, 0, 6.283); ctx.stroke();
+        ctx.fillStyle = COL.amber; ctx.font = "600 10px 'IBM Plex Mono', monospace"; ctx.textAlign = 'center';
+        ctx.fillText('DENY', q.x, q.y - R * 1.2 - 8 - q.life * 14);
+        ctx.globalAlpha = 1;
+      });
+    };
+
+    const spawn = (threat) => {
+      if (pk.length > 30) return;
+      if (threat) pk.push({ path: [0, 1], i: 0, t: 0, sp: W * 0.28, threat: true });
+      else pk.push({ path: pick(ROUTES), i: 0, t: 0, sp: W * (0.3 + Math.random() * 0.08), threat: false });
+    };
+
+    const step = (dt) => {
+      spawnT -= dt; if (spawnT <= 0) { spawn(false); spawnT = 0.45 + Math.random() * 0.6; }
+      thrT -= dt; if (thrT <= 0) { spawn(true); thrT = 3.4 + Math.random() * 2.6; }
+      for (let j = pk.length - 1; j >= 0; j--) {
+        const p = pk[j], a = P[p.path[p.i]], b = P[p.path[p.i + 1]];
+        p.t += p.sp * dt / (Math.hypot(b.x - a.x, b.y - a.y) || 1);
+        if (p.t < 1) continue;
+        p.i++; p.t = 0;
+        const nid = p.path[p.i];
+        if (p.i >= p.path.length - 1) {
+          pk.splice(j, 1);
+          if (p.threat) {
+            blocked++; glow[nid] = 1; gcol[nid] = COL.amber;
+            rip.push({ x: P[nid].x, y: P[nid].y, life: 0 });
+            if (cnt) cnt.textContent = String(blocked);
+            pushLog('deny', 'DENY ' + pick(DENY));
+          } else {
+            if (glow[nid] < 0.8) { glow[nid] = 0.8; gcol[nid] = COL.cy; }
+            if (Math.random() < 0.3) pushLog('ok', pick(OKS));
+          }
+        } else if (glow[nid] < 0.5) { glow[nid] = 0.5; gcol[nid] = COL.cy; }
+      }
+      for (let i = 0; i < glow.length; i++) glow[i] = Math.max(0, glow[i] - dt * 1.8);
+      for (let q = rip.length - 1; q >= 0; q--) { rip[q].life += dt * 1.1; if (rip[q].life >= 1) rip.splice(q, 1); }
+    };
+
+    const frame = (now) => {
+      raf = 0;
+      if (!running) return;
+      const dt = Math.min(0.05, (now - last) / 1000 || 0); last = now;
+      step(dt); draw();
+      raf = requestAnimationFrame(frame);
+    };
+    const start = () => { if (running || reduce) return; running = true; last = performance.now(); raf = requestAnimationFrame(frame); };
+    const stop = () => { running = false; if (raf) cancelAnimationFrame(raf); raf = 0; };
+
+    const resize = () => {
+      const r = cv.getBoundingClientRect();
+      W = Math.max(1, r.width); H = Math.max(1, r.height);
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      R = Math.max(13, Math.min(22, W * 0.042));
+      P = N.map((n) => ({ x: n.x * W, y: n.y * H }));
+      if (!running) draw();
+    };
+
+    pushLog('ok', 'OSPF area 0 · neighbor FULL');
+    pushLog('ok', 'AD auth ok · svc-sync');
+    if (reduce) {
+      blocked = 1; if (cnt) cnt.textContent = '1';
+      pushLog('deny', 'DENY ' + DENY[0]);
+      pk = [
+        { path: [0, 1, 2, 3], i: 1, t: 0.45, sp: 0, threat: false },
+        { path: [0, 1, 2, 5], i: 0, t: 0.55, sp: 0, threat: false },
+        { path: [0, 1], i: 0, t: 0.72, sp: 0, threat: true }
+      ];
+    }
+    resize();
+    if ('ResizeObserver' in window) { const ro = new ResizeObserver(resize); ro.observe(cv); cl.push(() => ro.disconnect()); }
+    else on(window, 'resize', resize);
+
+    if (!reduce) {
+      if ('IntersectionObserver' in window) {
+        const vio = new IntersectionObserver((entries) => { entries.forEach((e) => (e.isIntersecting ? start() : stop())); }, { threshold: 0.05 });
+        vio.observe(cv); cl.push(() => vio.disconnect());
+      } else start();
+      on(document, 'visibilitychange', () => { if (document.hidden) stop(); });
+    }
+    cl.push(stop);
+  }
+
+  renderVals() {
+    return {};
+  }
+}
+window.addEventListener("DOMContentLoaded",()=>{try{new Component().componentDidMount();}catch(e){}});
+</script>
+</body>
+</html>
